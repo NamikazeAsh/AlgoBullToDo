@@ -1,33 +1,34 @@
-from django.shortcuts import render
 from rest_framework import generics
-from .models import TodoItem
-from .serializers import TodoItemSerializer
 from rest_framework.response import Response
 from rest_framework import status
-from django.shortcuts import get_object_or_404
-
 from rest_framework.authentication import BasicAuthentication
 from rest_framework.permissions import IsAuthenticated
-
 from rest_framework.authtoken.views import ObtainAuthToken
-from rest_framework.authtoken.models import Token
-from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.authtoken.models import Token
 from django.contrib.auth import logout
+from .models import TodoItem
+from .serializers import TodoItemSerializer
+from django.shortcuts import get_object_or_404
+from django.contrib.auth import authenticate, login, logout
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
 
-
-class UserLoginView(ObtainAuthToken):
-    def post(self, request, *args, **kwargs):
-        serializer = self.serializer_class(data=request.data,context={'request': request})
-        serializer.is_valid(raise_exception=True)
-        user = serializer.validated_data['user']
-        Token.objects.get_or_create(user=user)
-        return Response({"token": user.auth_token.key})
-
+class UserLoginView(APIView):
+    def post(self, request):
+        username = request.data.get('username')
+        password = request.data.get('password')
+        
+        user = authenticate(username=username, password=password)
+        
+        if user is not None:
+            login(request, user)
+            return Response({"detail": "Successfully logged in."})
+        else:
+            return Response({"detail": "Invalid credentials."}, status=400)
 
 class UserLogoutView(APIView):
     def post(self, request):
-        request.user.auth_token.delete()
         logout(request)
         return Response({"detail": "Successfully logged out."})
 
