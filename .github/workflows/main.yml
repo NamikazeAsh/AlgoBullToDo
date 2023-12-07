@@ -20,10 +20,10 @@ jobs:
         pip install -r requirements.txt 
 
     - name: Run Model tests
-      run: python manage.py test ToDoApp.test_model
+      run: python manage.py test ToDoApp.test_model.py
 
     - name: Run Serializer tests
-      run: python manage.py test ToDoApp.test_serializers
+      run: python manage.py test ToDoApp.test_serializers.py
 
     - name: Run Views tests
-      run: python manage.py test ToDoApp.test_views
+      run: python manage.py test ToDoApp.test_views.py
