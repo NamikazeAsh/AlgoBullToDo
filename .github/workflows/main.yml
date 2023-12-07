@@ -28,7 +28,13 @@ jobs:
     - name: Run Views tests
       run: python manage.py test ToDoApp.tests.test_views
 
+    - name: Python code formatting with Black
+      run: |
+        pip install black
+        black .
+    
     - name: Check Python code formatting with Black
       run: |
         pip install black
         black --check .
+        
