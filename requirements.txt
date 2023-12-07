@@ -2,3 +2,5 @@ Django
 djangorestframework
 whitenoise
 gunicorn
+pre-commit
+black
