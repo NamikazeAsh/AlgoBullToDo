@@ -20,10 +20,15 @@ jobs:
         pip install -r requirements.txt 
 
     - name: Run Model tests
-      run: python manage.py test ToDoApp.test_model.py
+      run: python manage.py test ToDoApp.tests.test_model.py
 
     - name: Run Serializer tests
-      run: python manage.py test ToDoApp.test_serializers.py
+      run: python manage.py test ToDoApp.tests.test_serializers.py
 
     - name: Run Views tests
-      run: python manage.py test ToDoApp.test_views.py
+      run: python manage.py test ToDoApp.tests.test_views.py
+
+    - name: Check Python code formatting with Black
+      run: |
+        pip install black
+        black --check .
