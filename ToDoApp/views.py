@@ -65,7 +65,7 @@ class TodoItemUpdateView(generics.UpdateAPIView):
         serializer = self.get_serializer(instance, data=request.data)
         serializer.is_valid(raise_exception=True)
         self.perform_update(serializer)
-        return Response({"message": "TodoItem updated successfully"}, status=status.HTTP_200_OK)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 class TodoItemDeleteView(generics.DestroyAPIView):
     permission_classes = [IsAuthenticated]
