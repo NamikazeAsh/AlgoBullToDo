@@ -1,7 +1,7 @@
 # ToDoIntship
 To - Do list on Django with REST API
 
-![image](https://user-images.githubusercontent.com/84863353/204256951-077091fd-f160-444c-b1c5-acb0ccc3ff40.png)
+![image](https://github.com/NamikazeAsh/AlgoBullToDo/assets/84863353/5d23cde7-8028-4324-bdb0-687cdcc4bcc9)
 
 
 Data to be sent in json format through POSTMAN api from shared collection.
