@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-_sb=46lg7+8qs3^lhf9z#r9e_#oc$24oa+xc9e_3!pu0+dceqq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'algobulltodo-production.up.railway.app',
+    'https://algobulltodo-production.up.railway.app/',
+]
 
 
 # Application definition
