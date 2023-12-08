@@ -24,3 +24,7 @@ https://algobulltodo-production.up.railway.app/todos/update/(id)
 5) Delete a to-do<br>
 https://algobulltodo-production.up.railway.app/todos/delete/(id) <br>
 
+##COVERAGE REPORT 
+![image](https://github.com/NamikazeAsh/AlgoBullToDo/assets/84863353/349d94c4-c324-4f35-96bc-c5d038d346e6)
+manage.py's missing
+![image](https://github.com/NamikazeAsh/AlgoBullToDo/assets/84863353/7301cfd1-fd69-4c00-bb52-ee207f5acd72)
