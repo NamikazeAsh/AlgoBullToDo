@@ -1,7 +1,7 @@
 from rest_framework.test import APITestCase
 from rest_framework import status
 from django.urls import reverse
-from ToDoApp.models import *
+from ToDoApp.models import TodoItem,Tag
 from django.contrib.auth.models import User 
 
 class TodoItemAPITestCase(APITestCase):
@@ -16,14 +16,13 @@ class TodoItemAPITestCase(APITestCase):
         data = {
             'title': 'New Task',
             'description': 'New Description',
-            'tags': ['Tag1', 'Tag2', 'Tag3']  # Example tags data
+            'tags': ['Tag1', 'Tag2', 'Tag3']
         }
         response = self.client.post(url, data, format='json')
         
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         created_todo_item = TodoItem.objects.get(title='New Task')
         
-        # Verify if tags are associated with the created TodoItem
         self.assertEqual(created_todo_item.tags.count(), len(data['tags']))
         for tag_name in data['tags']:
             tag = Tag.objects.get(name=tag_name)

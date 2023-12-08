@@ -1,5 +1,5 @@
 from django.test import TestCase
-from ToDoApp.models import *
+from ToDoApp.models import TodoItem,Tag
 from django.utils import timezone
 from django.core.exceptions import ValidationError
 from datetime import date 

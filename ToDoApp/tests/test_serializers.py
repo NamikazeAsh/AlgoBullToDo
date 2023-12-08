@@ -1,5 +1,4 @@
 from django.test import TestCase
-from ToDoApp.models import TodoItem
 from ToDoApp.serializers import TodoItemSerializer
 
 # --------------------------------- Unit test -------------------------------- #
