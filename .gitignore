@@ -13,3 +13,6 @@ testWorkspace/
 
 virtualenv
 media
+
+coverage
+.coverage
