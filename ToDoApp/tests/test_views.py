@@ -8,7 +8,7 @@ class TodoItemAPITestCase(APITestCase):
     
     def setUp(self):
         self.user = User.objects.create_user(username='testuser', password='test123')
-        self.client.login(username='testuser', password='test123')
+        self.client.force_authenticate(user=self.user)
         self.todoitem = TodoItem.objects.create(title='Test Task', description='Test Description')
         
     def test_create_todoitem(self):

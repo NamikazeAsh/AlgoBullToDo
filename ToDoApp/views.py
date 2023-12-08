@@ -32,8 +32,11 @@ class TodoItemCreateView(generics.CreateAPIView):
     serializer_class = TodoItemSerializer
 
     def create(self, request, *args, **kwargs):
-        tags_data = request.data.pop('tags', [])
-        serializer = self.get_serializer(data=request.data)
+        # Create a mutable copy of request.data
+        mutable_data = request.data.copy()
+        tags_data = mutable_data.pop('tags', [])
+        
+        serializer = self.get_serializer(data=mutable_data)
         serializer.is_valid(raise_exception=True)
         instance = serializer.save()
 
@@ -46,6 +49,7 @@ class TodoItemCreateView(generics.CreateAPIView):
 class TodoItemUpdateView(generics.UpdateAPIView):
     authentication_classes = [BasicAuthentication]
     permission_classes = [IsAuthenticated]
+    
     queryset = TodoItem.objects.all()
     serializer_class = TodoItemSerializer
 
