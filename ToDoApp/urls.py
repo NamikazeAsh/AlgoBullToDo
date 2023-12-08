@@ -1,7 +1,6 @@
-from django.contrib import admin
-from django.urls import path,include
+from django.urls import path
 from rest_framework.authtoken.views import obtain_auth_token
-from .views import TodoItemCreateView,TodoItemDeleteView,TodoItemReadAllView,TodoItemSerializer,TodoItemReadOneView,TodoItemUpdateView
+from .views import TodoItemCreateView,TodoItemDeleteView,TodoItemReadAllView,TodoItemReadOneView,TodoItemUpdateView
 
 urlpatterns = [
     path('todos/create/', TodoItemCreateView.as_view(), name='todo-create'),
