@@ -7,7 +7,7 @@ from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.views import APIView
 from rest_framework.authtoken.models import Token
 from django.contrib.auth import logout
-from .models import *
+from .models import Tag,TodoItem
 from .serializers import TodoItemSerializer
 from django.contrib.auth import authenticate, login, logout
 
