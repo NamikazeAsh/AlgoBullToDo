@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.core.exceptions import ValidationError
+from datetime import date
 
 class TodoItem(models.Model):
     STATUS_CHOICES = (
@@ -13,7 +14,7 @@ class TodoItem(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=100)
     description = models.TextField(max_length=1000)
-    due_date = models.DateField(default=timezone.now() + timezone.timedelta(days=1), null=True, blank=True)
+    due_date = models.DateField(default=date.today() + timezone.timedelta(days=1), null=True, blank=True)
     tags = models.ManyToManyField('Tag', blank=True)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='OPEN')
     
@@ -25,6 +26,10 @@ class TodoItem(models.Model):
             raise ValidationError("Title cannot be empty.")
         if not self.description.strip():
             raise ValidationError("Description cannot be empty.")
+
+    def save(self, *args, **kwargs):
+        self.clean()
+        super().save(*args, **kwargs)
 
 class Tag(models.Model):
     name = models.CharField(max_length=50, unique=True)

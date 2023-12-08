@@ -4,3 +4,4 @@ whitenoise
 gunicorn
 pre-commit
 black
+flake8
