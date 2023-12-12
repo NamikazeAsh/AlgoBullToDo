@@ -29,6 +29,7 @@ ALLOWED_HOSTS = [
     'algobulltodo-production.up.railway.app',
     'https://algobulltodo-production.up.railway.app/',
     '127.0.0.1',
+    'https://algobulltodo-production.up.railway.app'
 ]
 
 
