@@ -12,3 +12,14 @@ class TodoItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = TodoItem
         fields = '__all__'
+        error_messages = {
+            'due_date': {
+                'invalid': "Due date cannot be in the past."
+            },
+            'title': {
+                'blank': "Title cannot be empty."
+            },
+            'description': {
+                'blank': "Description cannot be empty."
+            }
+        }
