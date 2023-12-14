@@ -55,17 +55,26 @@ class TodoItemUpdateView(generics.UpdateAPIView):
         self.perform_update(serializer)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-class TodoItemDeleteView(generics.DestroyAPIView):
-    authentication_classes = [BasicAuthentication]
-    permission_classes = [IsAuthenticated]
+# class TodoItemDeleteView(generics.DestroyAPIView):
+#     authentication_classes = [BasicAuthentication]
+#     permission_classes = [IsAuthenticated]
     
+#     queryset = TodoItem.objects.all()
+#     serializer_class = TodoItemSerializer
+
+#     def destroy(self, request, *args, **kwargs):
+#         try:
+#             instance = self.get_object()
+#             self.perform_destroy(instance)
+#             return Response({"message": "TodoItem deleted successfully"}, status=status.HTTP_204_NO_CONTENT)
+#         except Exception as e:
+#             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class TodoItemDeleteView(generics.DestroyAPIView):
     queryset = TodoItem.objects.all()
     serializer_class = TodoItemSerializer
 
     def destroy(self, request, *args, **kwargs):
-        try:
-            instance = self.get_object()
-            self.perform_destroy(instance)
-            return Response({"message": "TodoItem deleted successfully"}, status=status.HTTP_204_NO_CONTENT)
-        except Exception as e:
-            return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        instance = self.get_object()
+        self.perform_destroy(instance)
+        return Response({"message": "TodoItem deleted successfully."}, status=status.HTTP_204_NO_CONTENT)
