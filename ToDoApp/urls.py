@@ -6,6 +6,6 @@ urlpatterns = [
     path('todos/<int:pk>/', TodoItemReadOneView.as_view(), name='todo-read-one'),
     path('todos/', TodoItemReadAllView.as_view(), name='todo-read-all'),
     path('todos/update/<int:pk>/', TodoItemUpdateView.as_view(), name='todo-update'),
-    path('todos/delete/<int:pk>', TodoItemDeleteView.as_view(), name='todo-delete'),
+    path('todos/delete/<int:pk>/', TodoItemDeleteView.as_view(), name='todo-delete'),
 
 ]
