@@ -26,18 +26,16 @@ SECRET_KEY = 'django-insecure-_sb=46lg7+8qs3^lhf9z#r9e_#oc$24oa+xc9e_3!pu0+dceqq
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'algobulltodo-production.up.railway.app',
     'https://algobulltodo-production.up.railway.app/',
-    '127.0.0.1',
+    'https://127.0.0.1',
     'https://algobulltodo-production.up.railway.app'
 ]
 
 CSRF_TRUSTED_ORIGINS=[
-    'algobulltodo-production.up.railway.app',
     'https://algobulltodo-production.up.railway.app/',
-    '127.0.0.1',
+    'https://127.0.0.1',
     'https://algobulltodo-production.up.railway.app'
-    ]
+]
 
 
 # Application definition
