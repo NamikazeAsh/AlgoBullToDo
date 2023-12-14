@@ -63,6 +63,9 @@ class TodoItemDeleteView(generics.DestroyAPIView):
     serializer_class = TodoItemSerializer
 
     def destroy(self, request, *args, **kwargs):
-        instance = self.get_object()
-        self.perform_destroy(instance)
-        return Response({"message": "TodoItem deleted successfully"}, status=status.HTTP_204_NO_CONTENT)
+        try:
+            instance = self.get_object()
+            self.perform_destroy(instance)
+            return Response({"message": "TodoItem deleted successfully"}, status=status.HTTP_204_NO_CONTENT)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
