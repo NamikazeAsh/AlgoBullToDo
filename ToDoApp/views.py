@@ -28,7 +28,6 @@ class TodoItemCreateView(generics.CreateAPIView):
     serializer_class = TodoItemSerializer
 
     def create(self, request, *args, **kwargs):
-        # Create a mutable copy of request.data
         mutable_data = request.data.copy()
         tags_data = mutable_data.pop('tags', [])
 
@@ -45,7 +44,6 @@ class TodoItemCreateView(generics.CreateAPIView):
             return Response({"message": "TodoItem created successfully"}, status=status.HTTP_201_CREATED)
         
         except ValidationError as e:
-            # Customize the response message for the ValidationError
             return Response({"message": str(e)}, status=status.HTTP_400_BAD_REQUEST)
     
 class TodoItemUpdateView(generics.UpdateAPIView):
