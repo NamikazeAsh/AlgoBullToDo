@@ -78,6 +78,7 @@ class TodoItemUpdateView(generics.UpdateAPIView):
 class TodoItemDeleteView(generics.DestroyAPIView):
     # permission_classes = [IsAuthenticated]
     # authentication_classes = [BasicAuthentication]
+    http_method_names = ['delete']
     
     queryset = TodoItem.objects.all()
     serializer_class = TodoItemSerializer
