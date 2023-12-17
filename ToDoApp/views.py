@@ -86,4 +86,9 @@ class TodoItemDeleteView(generics.DestroyAPIView):
     def delete(self, request, *args, **kwargs):
         instance = self.get_object()
         self.perform_destroy(instance)
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        
+        message = "TodoItem deleted successfully!"
+        response_data = {
+            "detail": message
+        }
+        return Response(response_data,status=status.HTTP_204_NO_CONTENT)
