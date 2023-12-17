@@ -5,4 +5,3 @@ gunicorn
 pre-commit
 black
 flake8
-sqlite3
