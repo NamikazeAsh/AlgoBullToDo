@@ -76,8 +76,8 @@ class TodoItemUpdateView(generics.UpdateAPIView):
 #             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
 class TodoItemDeleteView(generics.DestroyAPIView):
-    permission_classes = [IsAuthenticated]
-    authentication_classes = [BasicAuthentication]
+    # permission_classes = [IsAuthenticated]
+    # authentication_classes = [BasicAuthentication]
     
     queryset = TodoItem.objects.all()
     serializer_class = TodoItemSerializer
