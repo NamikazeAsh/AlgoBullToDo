@@ -5,3 +5,5 @@ gunicorn
 pre-commit
 black
 flake8
+pysqlite3
+pysqlite3-binary
