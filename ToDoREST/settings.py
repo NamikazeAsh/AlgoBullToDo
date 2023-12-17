@@ -28,7 +28,8 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'algobulltodo-production.up.railway.app',
     '127.0.0.1',
-    '.vercel.app'
+    '.vercel.app',
+    '.railway.app'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
