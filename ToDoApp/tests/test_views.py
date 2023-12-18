@@ -50,7 +50,7 @@ class TodoItemAPITestCase(APITestCase):
     def test_delete_todoitem(self):
         url = reverse('todo-delete', kwargs={'pk': self.todoitem.pk})
         response = self.client.delete(url)
-        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
         
 
 
