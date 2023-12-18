@@ -33,7 +33,7 @@ ALLOWED_HOSTS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://algobulltodo-production.up.railway.app',
+    'https://algobulltodo.up.railway.app',
     'https://127.0.0.1',
 ]
 
